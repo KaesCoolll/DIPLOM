@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учебные материалы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Uchebnie materiali/materials.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/FrontTest.png" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+    <a href="/" class="logo-link">
+      <img src="/img/FrontTest.png" class="logo" width="55" height="55" >
+      <span class="nav_item0">FrontTest</span>
+    </a>
+    <div class="nav">
+      <a class="nav_item" href="/">Главная</a>
+      <a class="nav_item1" href="/Testirovanie/testirovanie.html">Тестирование</a>
+      <a class="nav_item2" href="/Uchebnie materiali/materials.html">Учебные материалы</a>
+      <a class="nav_item3" href="@">Советы</a>
+    </div>
+    </header>
+    <main class="materials-main">
+    <h1 class="page-title">Учебные материалы по фронтенд-разработке</h1>
+    <div class="materials-container">
+      <nav class="materials-menu" role="tablist" aria-label="Темы учебных материалов">
+        <button class="materials-menu-item active" data-topic="html-css" role="tab" aria-selected="true" aria-controls="topic-html-css" id="tab-html-css">HTML & CSS</button>
+        <button class="materials-menu-item" data-topic="javascript" role="tab" aria-selected="false" aria-controls="topic-javascript" id="tab-javascript">JavaScript</button>
+        <button class="materials-menu-item" data-topic="react" role="tab" aria-selected="false" aria-controls="topic-react" id="tab-react">React</button>
+        <button class="materials-menu-item" data-topic="webpack" role="tab" aria-selected="false" aria-controls="topic-webpack" id="tab-webpack">Webpack & Бандлеры</button>
+        <button class="materials-menu-item" data-topic="performance" role="tab" aria-selected="false" aria-controls="topic-performance" id="tab-performance">Оптимизация и производительность</button>
+      </nav>
+      <section class="materials-content" id="materials-content" tabindex="0" role="tabpanel" aria-labelledby="tab-html-css">
+        <!-- Содержимое темы появится здесь -->
+      </section>
+    </div>
+  </main>
+
+  <script src="materials.js" defer></script>
+</body>
+</html>

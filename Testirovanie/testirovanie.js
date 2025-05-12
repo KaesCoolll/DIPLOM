@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Встроенный стиль (inline)",
                     "Внешний файл CSS",
                     "Использование атрибута style в теге",
-                    "Использование тегов <script>"
+                    "Использование тегов &lt;script&gt;"
                 ],
                 correct: 1
             },
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     "&lt;href&gt;",
                     "&lt;url&gt;"
                 ],
-
                 correct: 1
             },
             {
@@ -310,46 +309,62 @@ document.addEventListener('DOMContentLoaded', () => {
         const questions = tests[testId];
 
         if (state.current >= questions.length) {
-            // Показываем результат
             container.innerHTML = `
-          <div class="result">
-            Тест завершён!<br>
-            Правильных ответов: ${state.correctCount} из ${state.total}<br>
-            Неправильных ответов: ${state.total - state.correctCount}
-          </div>
-        `;
+                <div class="result">
+                    Тест завершён!<br>
+                    Правильных ответов: ${state.correctCount} из ${state.total}<br>
+                    Неправильных ответов: ${state.total - state.correctCount}
+                </div>
+            `;
             return;
         }
 
         const q = questions[state.current];
 
-        // Формируем HTML вопроса и вариантов
         let answersHtml = q.answers.map((ans, i) => `
-        <li>
-          <label>
-            <input type="radio" name="answer" value="${i}" />
-            ${ans}
-          </label>
-        </li>
-      `).join('');
+            <li>
+                <label>
+                    <input type="radio" name="answer" value="${i}" />
+                    ${ans}
+                </label>
+            </li>
+        `).join('');
 
         container.innerHTML = `
-        <div class="question">
-          <div class="question-text">${q.question}</div>
-          <ul class="answers">${answersHtml}</ul>
-        </div>
-      `;
+            <div class="question">
+                <div class="question-text">${q.question}</div>
+                <ul class="answers">${answersHtml}</ul>
+            </div>
+        `;
 
         // Добавляем обработчик на выбор ответа
         const inputs = container.querySelectorAll('input[name="answer"]');
+        const labels = container.querySelectorAll('label');
         inputs.forEach(input => {
             input.addEventListener('change', () => {
                 const selected = parseInt(input.value);
-                if (selected === q.correct) {
+
+                // Блокируем все радиокнопки
+                inputs.forEach(i => i.disabled = true);
+
+                // Снимаем старые классы
+                labels.forEach(label => label.classList.remove('answer-correct', 'answer-wrong'));
+
+                // Подсвечиваем правильный ответ зелёным с галочкой
+                labels[q.correct].classList.add('answer-correct');
+
+                // Если выбран неправильный ответ, подсвечиваем его красным с крестиком
+                if (selected !== q.correct) {
+                    labels[selected].classList.add('answer-wrong');
+                } else {
                     state.correctCount++;
                 }
-                state.current++;
-                showQuestion(testId);
+
+                // Через 1 секунду переходим к следующему вопросу
+                setTimeout(() => {
+                    state.current++;
+                    showQuestion(testId);
+                }, 1000);
             });
         });
     }
