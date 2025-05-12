@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stile.css">
+    <link rel="icon" href="img/FrontTest.png" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo-link">
+            <img src="img/FrontTest.png" class="logo" width="55" height="55">
+            <span class="nav_item0">FrontTest</span>
+        </a>
+        <div class="nav">
+            <a class="nav_item" href="/">Главная</a>
+            <a class="nav_item1" href="testirovanie.html">Тестирование</a>
+            <a class="nav_item2" href="#">Учебные материалы</a>
+            <a class="nav_item3" href="#">Советы</a>
+        </div>
+    </header>
+    <main class="test-main">
+        <h1 class="page-title">Тестирование по фронтенд-разработке</h1>
+        <nav class="test-menu">
+            <button class="test-menu-item active" data-test="html-css">HTML & CSS</button>
+            <button class="test-menu-item" data-test="javascript">JavaScript</button>
+            <button class="test-menu-item" data-test="react">React</button>
+            <button class="test-menu-item" data-test="webpack">Webpack & Бандлеры</button>
+            <button class="test-menu-item" data-test="performance">Оптимизация и производительность</button>
+        </nav>
+        <section class="test-content">
+            <div class="test-panel" id="html-css">
+                <h2>Тест: HTML & CSS</h2>
+                <div class="question-container"></div>
+            </div>
+            <div class="test-panel hidden" id="javascript">
+                <h2>Тест: JavaScript</h2>
+                <div class="question-container"></div>
+            </div>
+            <div class="test-panel hidden" id="react">
+                <h2>Тест: React</h2>
+                <div class="question-container"></div>
+            </div>
+            <div class="test-panel hidden" id="webpack">
+                <h2>Тест: Webpack & Бандлеры</h2>
+                <div class="question-container"></div>
+            </div>
+            <div class="test-panel hidden" id="performance">
+                <h2>Тест: Оптимизация и производительность</h2>
+                <div class="question-container"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+          <div class="contact-info">
+            <h3>Связь с нами</h3>
+            <p>Телефон: <a href="tel:+79203932334">+7 920 393-23-34</a></p>
+            <p>Email: <a href="mailto:kaes.cooll@gmail.com">kaes.cooll@gmail.com</a></p>
+          </div>
+          <div class="social-links">
+            <h3>Социальные сети</h3>
+            <p><a href="https://t.me/KaesCool" target="_blank" rel="noopener noreferrer">@KaesCool</a></p>
+            <p><a href="https://vk.com/astraxxanskayasuch" target="_blank" rel="noopener noreferrer">VK: https://vk.com/astraxxanskayasuch</a></p>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>© 2025 FrontTest. Все права защищены.</p>
+        </div>
+      </footer>
+    <script src="testirovanie.js" defer></script>
+</body>
+</html>
